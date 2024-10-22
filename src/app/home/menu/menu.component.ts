@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { AuthService } from '../../core/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -7,7 +9,15 @@ import { MenuItem } from 'primeng/api';
 })
 export class MenuComponent {
   items: MenuItem[] | undefined;
+  public emailUser: string | null= null;
+constructor(private authService:AuthService,private router:Router){
+    var user= authService.getLoggedInUser();
+    if(user){
+        this.emailUser =user.email;
 
+    }
+    
+}
   ngOnInit() {
       this.items = [
           {
@@ -47,5 +57,19 @@ export class MenuComponent {
               routerLink:'about'        
           }
       ];
+  }
+  goLogin(){
+    this.router.navigate(['/login']);
+  }
+  logOut(){
+
+    this.authService.logoutUser().then(() => {
+        var user= this.authService.getLoggedInUser();
+        this.emailUser = user ? user.email : null;
+ 
+        this.router.navigate(['/home']); 
+      }).catch(error => {
+        alert('Error al cerrar sesión: '+ error);
+      });
   }
 }

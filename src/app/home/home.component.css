@@ -1,7 +1,7 @@
 .homeContainer{
     background-image: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url(/assets/homeWallpaper.webp);
+        url(https://raw.githubusercontent.com/jonyalanoca/Gias/refs/heads/main/homeWallpaper.webp);
     background-size: cover;
     width: 100%;
     height: 100vh;

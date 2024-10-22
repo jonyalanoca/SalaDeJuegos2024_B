@@ -1,7 +1,7 @@
 .loginContainer{
     width: 100%;
     height: 100vh;
-    background-image: url("/assets/FondoLogin.webp");
+    background-image: url("https://raw.githubusercontent.com/jonyalanoca/Gias/refs/heads/main/FondoLogin.webp");
     background-size: cover;
     display: flex;
     justify-content: center;

@@ -9,6 +9,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FloatLabelModule } from 'primeng/floatlabel';
     InputTextModule,
     BrowserAnimationsModule, 
     FloatLabelModule,
-    ReactiveFormsModule   
+    ReactiveFormsModule,
+    DialogModule   
   ],
   exports:[
     LoginComponent,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ahorcado',
@@ -8,33 +9,66 @@ import { Component } from '@angular/core';
 export class AhorcadoComponent {
   public listaLetras: string[];
   public listaLetrasUsadas: string[];
-  public palabraSecreta: string[];
+  public palabraSecreta: string[] = [];
   public cantLetrasFallidas: number;
+  private palabrasAhorcado: string[] = [
+    'manzana',
+    'elefante',
+    'programacion',
+    'desarrollo',
+    'javascript',
+    'angular',
+    'computadora',
+    'juego',
+    'musica',
+    'pelicula',
+    'libro',
+    'ventana',
+    'telefono',
+    'familia',
+    'aventura',
+    'ciencia',
+    'matematica',
+    'chocolate',
+    'verano',
+    'invierno',
+    'fiesta'
+  ];
+  public puntaje: number = 0;
 
   //#region Variables de control para el modal
   public modalMessage: ModalParms;
   //#endregion
 
-  constructor() {
+  constructor(private router:Router) {
     this.modalMessage = { visible: false, position: "top" } as ModalParms;
     this.listaLetras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     this.listaLetrasUsadas = [];
-    this.palabraSecreta = ['J', 'O', 'N', 'A', 'T', 'H', 'A', 'N'];
+    this.palabraSecreta = this.palabrasAhorcado[this.rndNumber(0, 20)].toUpperCase().split('');
     this.cantLetrasFallidas = 0;
   }
-  public estadoInicial():void{
+  public estadoInicial(): void {
 
   }
   public probarLetra(event: string): void {
-    this.listaLetrasUsadas.push(event);
-    if (!this.palabraSecreta.includes(event))
-      this.cantLetrasFallidas++;
+    console.log(event);
+    console.log(this.listaLetrasUsadas);
 
-    if (this.cantLetrasFallidas >= 5){
-      this.openModal("Fin del juego", "La palabra secreta es: " + this.palabraSecreta.join(''))
+
+    this.listaLetrasUsadas.push(event);
+    if (!this.palabraSecreta.includes(event)){
+      this.cantLetrasFallidas++;
+    }else{
+      for (var i = 0; i < this.listaLetrasUsadas.length; i++) {
+        if (this.palabraSecreta.includes(this.listaLetrasUsadas[i])) this.puntaje += 100;
+      }
     }
-    if(this.palabraSecreta.every(x=> this.listaLetrasUsadas.includes(x))){
-      this.openModal("Felicitaciones", "¡Ganaste el juego!<br><br>Tu puntaje es: 123456789 pts");
+
+    if (this.cantLetrasFallidas >= 5) {
+      this.openModal("Fin del juego", "La palabra secreta es: " + this.palabraSecreta.join('') + "<br> Tu puntaje es: " + this.puntaje + " pts")
+    }
+    if (this.palabraSecreta.every(x => this.listaLetrasUsadas.includes(x))) {
+      this.openModal("Felicitaciones", "¡Ganaste el juego!<br><br>Tu puntaje es: " + this.puntaje + " pts");
     }
 
   }
@@ -45,9 +79,16 @@ export class AhorcadoComponent {
     return this.listaLetrasUsadas.includes(event);
   }
   private openModal(titulo: string, mensaje: string): void {
-    this.modalMessage.visible=true;
-    this.modalMessage.title=titulo;
+    this.modalMessage.visible = true;
+    this.modalMessage.title = titulo;
     this.modalMessage.message = mensaje;
+  }
+  rndNumber(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  rankear(){
+    this.modalMessage.visible =false;
+    this.router.navigate(['/home/ranking/2/'+this.puntaje]);
   }
 }
 

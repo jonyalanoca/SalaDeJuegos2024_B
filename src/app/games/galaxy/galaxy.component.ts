@@ -1,4 +1,5 @@
 import { Component, ElementRef, Renderer2 } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-galaxy',
@@ -6,7 +7,7 @@ import { Component, ElementRef, Renderer2 } from '@angular/core';
   styleUrl: './galaxy.component.css'
 })
 export class GalaxyComponent {
-  timeLeft: number = 1000;
+  timeLeft: number = 10;
   interval: any;
   intervalAlien: any;
   difucult: number = 1000;
@@ -16,7 +17,7 @@ export class GalaxyComponent {
     'cyan', 'magenta', 'lime', 'teal', 'indigo', 'violet', 'brown', 'gray', 'black', 'white'
   ];
 
-  constructor(private renderer: Renderer2, private el: ElementRef) { }
+  constructor(private renderer: Renderer2, private el: ElementRef, private router:Router) { }
 
   ngOnInit() {
     this.sortearAlien();
@@ -46,6 +47,7 @@ export class GalaxyComponent {
       if (this.timeLeft > 0) {
         this.timeLeft--;
       } else {
+        this.rankear();        
         this.stopTimer();
       }
     }, 1000);
@@ -65,6 +67,9 @@ export class GalaxyComponent {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
+  rankear(){
+    this.router.navigate(['/home/ranking/1/'+this.puntos]);
+  }
   ngOnDestroy() {
     this.stopTimer();
   }

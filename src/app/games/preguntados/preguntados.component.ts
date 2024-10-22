@@ -4,6 +4,7 @@ import { MessageService } from 'primeng/api';
 import { Character } from '../../interfaces/dragon-ball';
 import { Subscription } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-preguntados',
@@ -20,7 +21,7 @@ export class PreguntadosComponent {
   preguntaValidador: string = '';
   puntos:number = 0;
   vidas:number = 5;
-  constructor(private dragonBallService: DragonBallService,private messageService: MessageService) { }
+  constructor(private dragonBallService: DragonBallService,private messageService: MessageService, private router:Router) { }
   ngOnInit(): void {
     this.getCharacters();
   }
@@ -48,6 +49,7 @@ export class PreguntadosComponent {
     else{
       this.mostrarToast('Perdiste una vida', 'Incorrecto', 'error');
       this.vidas--;
+      if(this.vidas ==0) this.rankear();
     }
     this.getCharacters();
 
@@ -68,6 +70,9 @@ export class PreguntadosComponent {
   }
   mostrarToast(mensaje: string, titulo: string, tipo: 'info' | 'success' | 'error') {
     this.messageService.add({ severity: tipo, summary: titulo, detail: mensaje, life: 1000 });
+  }
+  rankear(){
+    this.router.navigate(['/home/ranking/4/'+this.puntos]);
   }
   ngOnDestroy(): void {
     this.suscription.unsubscribe();

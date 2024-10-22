@@ -6,7 +6,7 @@
 .container {
     height: 100vh;
     display: flex;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.055) 0%, rgb(0, 0, 0)), url(/assets/ahorcadoWallpaper.webp);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.055) 0%, rgb(0, 0, 0)), url(https://raw.githubusercontent.com/jonyalanoca/Gias/refs/heads/main/ahorcadoWallpaper.webp);
     background-size: cover;
   }
   

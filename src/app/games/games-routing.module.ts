@@ -4,12 +4,13 @@ import { AhorcadoComponent } from './ahorcado/ahorcado.component';
 import { MayormenorComponent } from './mayormenor/mayormenor.component';
 import { PreguntadosComponent } from './preguntados/preguntados.component';
 import { GalaxyComponent } from './galaxy/galaxy.component';
+import { guardGuard } from '../core/guard.guard';
 
 const routes: Routes = [
-  { path: 'ahorcado', component: AhorcadoComponent },
-  { path: 'preguntados', component: PreguntadosComponent },
-  { path: 'mayorMenor', component: MayormenorComponent },
-  { path: 'galaxy', component:GalaxyComponent}
+  { path: 'ahorcado', component: AhorcadoComponent, canActivate: [guardGuard] },
+  { path: 'preguntados', component: PreguntadosComponent, canActivate: [guardGuard] },
+  { path: 'mayorMenor', component: MayormenorComponent, canActivate: [guardGuard] },
+  { path: 'galaxy', component: GalaxyComponent, canActivate: [guardGuard] }
 ];
 
 @NgModule({

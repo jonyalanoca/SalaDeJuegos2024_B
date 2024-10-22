@@ -8,9 +8,13 @@
             </svg>
         </ng-template>
         <ng-template pTemplate="end">
-            <div class="flex align-items-center gap-2">
-                <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
+            <div class="flex align-items-center gap-2" *ngIf="emailUser != null; else loginButton">
+                <small>Bienvenido {{ emailUser }}</small>
+                <p-button label="Salir" [link]="true" (onClick)="logOut()" />
             </div>
+            <ng-template #loginButton>
+                <p-button label="Ingresar" [link]="true" (onClick)="goLogin()" />
+            </ng-template>
         </ng-template>
     </p-menubar>
 </div>

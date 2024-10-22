@@ -2,7 +2,7 @@
     height: 100vh;
     width: 100%;
     background: rgb(16, 36, 0);
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.126) 0%, rgba(0, 0, 0, 0.29)), url(/assets/galaxia.webp);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.126) 0%, rgba(0, 0, 0, 0.29)), url(https://raw.githubusercontent.com/jonyalanoca/Gias/refs/heads/main/galaxia.webp);
     background-size: cover;    
     background-position: center;
     display: flex;

@@ -8,6 +8,7 @@ import { MayormenorDetailComponent } from './gamesDetail/mayormenor-detail/mayor
 import { AboutComponent } from './about/about.component';
 import { GalaxyDetailComponent } from './gamesDetail/galaxy-detail/galaxy-detail.component';
 import { RankingComponent } from './ranking/ranking.component';
+import { guardGuard } from '../core/guard.guard';
 
 const routes: Routes = [
   {
@@ -20,7 +21,7 @@ const routes: Routes = [
       { path: 'mayorMenorDetail', component: MayormenorDetailComponent },
       { path: 'galaxyDetail',component:GalaxyDetailComponent},
       { path: 'about', component: AboutComponent },
-      { path: 'ranking/:modo/:score', component: RankingComponent },
+      { path: 'ranking/:modo/:score', component: RankingComponent, canActivate: [guardGuard]},
     ]
   }
 ];

@@ -13,6 +13,10 @@ import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from '../environmentsConfig';
 
 
 @NgModule({
@@ -34,7 +38,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
     FloatLabelModule,
     ReactiveFormsModule
   ],
-  providers: [MessageService],
+  providers: [MessageService, provideFirebaseApp(() => initializeApp(environment)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

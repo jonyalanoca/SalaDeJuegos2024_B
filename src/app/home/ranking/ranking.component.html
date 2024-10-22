@@ -5,25 +5,19 @@
     <div class="rankigPosition" *ngIf="score!>-1">
         Tu puntaje fue: <b>{{score}} pts</b>
     </div>
-    <p-table
-        [value]="customers"
-        [paginator]="true"
-        [rows]="10"
-        [tableStyle]="{ 'min-width': '50rem' }"
-        
-    >
+    <p-table [value]="posiciones" [paginator]="true" [rows]="10" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
             <tr>
-                <th style="width:25%">Name</th>
-                <th style="width:25%">Country</th>
-                <th style="width:25%">Company</th>
+                <th style="width:25%">Puntos</th>
+                <th style="width:25%">Email</th>
+                <th style="width:25%">Fecha</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-customer>
+        <ng-template pTemplate="body" let-posicion>
             <tr>
-                <td>{{ customer.name }}</td>
-                <td>{{ customer.country.name }}</td>
-                <td>{{ customer.company }}</td>
+                <td>{{ posicion.puntaje }}</td>
+                <td>{{ posicion.usuario }}</td>
+                <td>{{ toDateTime(posicion.fecha) | date:'short' }}</td>
             </tr>
         </ng-template>
     </p-table>

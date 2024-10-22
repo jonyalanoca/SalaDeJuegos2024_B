@@ -4,6 +4,7 @@ import { Card } from '../../interfaces/carta.interface';
 import { Subscription } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mayormenor',
@@ -18,7 +19,7 @@ export class MayormenorComponent {
   puntos:number=0;
   vidas:number = 5
 
-  constructor(private cardsService: CardsService, private messageService: MessageService) { }
+  constructor(private cardsService: CardsService, private messageService: MessageService, private router:Router) { }
 
   ngOnInit(): void {
     this.blockedDocument = true;
@@ -57,12 +58,15 @@ export class MayormenorComponent {
     } else {
       this.mostrarToast('Perdiste una vida', 'Incorrecto', 'error');
       this.vidas--;
+      if(this.vidas==0) this.rankear();
     }
 
     this.cartas[0] = this.cartas[1];
     this.getCartaNueva();
   }
-
+  rankear(){
+    this.router.navigate(['/home/ranking/4/'+this.puntos]);
+  }
 
   mostrarToast(mensaje: string, titulo: string, tipo: 'info' | 'success' | 'error') {
     this.messageService.add({ severity: tipo, summary: titulo, detail: mensaje, life: 1000 });
