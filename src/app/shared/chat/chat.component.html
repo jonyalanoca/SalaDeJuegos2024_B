@@ -1,0 +1,18 @@
+<p-sidebar [(visible)]="sidebarVisible" position="right">
+    <div class="chatContainer">
+        <div class="chatContent">
+
+        </div>
+        <div class="chatMessage">
+            <input type="text"
+                 pInputText [(ngModel)]="mensaje" 
+                 placeholder="Ingrese un mensaje"/>
+            <p-button label="Enviar" />
+        </div>
+    </div>
+
+</p-sidebar>
+
+<div class="floating-button" (click)="sidebarVisible = true">
+    <i class="pi pi-envelope p-text-secondary" pBadge style="font-size: 2rem" severity="danger"></i>
+</div>

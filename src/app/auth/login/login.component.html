@@ -1,0 +1,29 @@
+<div class="loginContainer ">
+    <div class="loginCard flex flex-column justify-content-around">
+        <div></div>
+        <div class="flex flex-column justify-content-center gap-3">
+            <h2 class="text-center">Ingreso</h2>
+
+            <div class="col-12">
+                <p-floatLabel>
+                    <input pInputText id="useremail" [(ngModel)]="value" class="col-12" type="password" />
+                    <label for="username">Email</label>
+                </p-floatLabel>
+            </div>
+            <div class="col-12">
+                <p-floatLabel>
+                    <input pInputText id="userpassword" [(ngModel)]="value" class="col-12" type="password" />
+                    <label for="username">Contraceña</label>
+                </p-floatLabel>
+            </div>
+            <div class="col-12">
+                <p-button label="Ingresar" [outlined]="true" severity="contrast" class="button-w-100" />
+            </div>
+        </div>
+        <div class="col-12">
+            ¿Aun no estas registrados? <a class="font-bold" [routerLink]="['/register']">¡Registrate ahora!</a>
+        </div>
+    </div>
+
+
+</div>

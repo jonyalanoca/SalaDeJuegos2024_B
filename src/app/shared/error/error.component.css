@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.errorContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0081DD;
+}
+
+.errorContent {
+    width: 70%;    
+    display: flex;
+    flex-direction: column;
+    gap:3rem;
+}
+
+.errorItem {
+    flex: 1;
+}
+
+.errorTitle {
+    font-size: 8rem;
+    text-align: center;
+}
+
+.errorMessage {
+    text-align: center;
+}
+.retorno{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.errorImage {
+  width: max-content;
+  margin: auto;
+  flex: 2;
+}

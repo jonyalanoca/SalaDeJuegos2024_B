@@ -1,0 +1,58 @@
+<div class="loginContainer ">
+    <div class="loginCard flex flex-column justify-content-around">
+        <div>Tryhard</div>
+        <form [formGroup]="formulario" (ngSubmit)="registrar()" class="flex flex-column justify-content-center gap-3">
+            <h2 class="text-center">Registro</h2>
+
+            <div class="col-12">
+                <p-floatLabel>
+                    <input pInputText id="useremail" formControlName="email" class="col-12" type="text" />
+                    <label for="username">Email</label>
+
+                </p-floatLabel>
+                <ng-container *ngIf="formulario.get('email')?.hasError('email')">
+                    <small class="text-pink-500">Formato inválido</small>
+                </ng-container>
+                <ng-container *ngIf="formulario.get('email')?.hasError('required') && formulario.get('email')?.touched">
+                    <small class="text-pink-500">El email es obligatorio</small>
+                </ng-container>
+            </div>
+            <div class="col-12">
+                <p-floatLabel>
+                    <input pInputText id="userpassword" formControlName="password" class="col-12" type="password" />
+                    <label for="username">Contraceña</label>
+                </p-floatLabel>
+                <ng-container *ngIf="formulario.get('password')?.hasError('minLength')">
+                    <small class="text-pink-500">Mínimo 6 caracteres</small>
+                </ng-container>
+                <ng-container *ngIf="formulario.get('password')?.hasError('required') && formulario.get('password')?.touched">
+                    <small class="text-pink-500">La contraceña es obligatoria</small>
+                </ng-container>
+            </div>
+            <div class="col-12">
+                <p-floatLabel>
+                    <input pInputText id="userpassword" formControlName="confirmPassword" class="col-12"
+                        type="password" />
+                    <label for="username">Repetir contraceña</label>
+                </p-floatLabel>
+                <ng-container *ngIf="formulario.get('confirmPassword')?.hasError('noCoincide') && formulario.get('confirmPassword')?.touched">
+                    <small class="text-pink-500">Las contraceñas no coinciden</small>
+                </ng-container>
+                <ng-container *ngIf="formulario.get('confirmPassword')?.hasError('required') && formulario.get('confirmPassword')?.touched">
+                    <small class="text-pink-500">La confirmación es obligatoria</small>
+                </ng-container>
+            </div>
+            <div class="col-12">
+                <p-button label="Registrar" [outlined]="true" severity="contrast" class="button-w-100" type="submit" />
+            </div>
+        </form>
+
+
+
+        <div class="col-12">
+            Ya tengo una cuenta <a class="font-bold" [routerLink]="['/login']">¡Logearme ahora!</a>
+        </div>
+    </div>
+
+
+</div>

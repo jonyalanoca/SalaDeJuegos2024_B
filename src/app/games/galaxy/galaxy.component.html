@@ -1,0 +1,17 @@
+<div class="galaxyContainer">
+    <div class="status">
+        <p>
+            Tiempo restante: {{timeLeft}}s
+        </p>
+        <p>
+            Puntos: {{puntos}}
+        </p>
+    </div>
+    <div class="campoBatalla">
+
+        <svg class="alien" width="50" height="50" viewBox="0 0 512 512" (click)="killAlien()">
+            <path class="alienPath"
+                d="M469.344 266.664v-85.328h-42.656v-42.672H384v-21.328h42.688v-64h-64v42.656H320v42.672H192V95.992h-42.656V53.336h-64v64H128v21.328H85.344v42.672H42.688v85.328H0v149.328h64v-85.328h21.344v85.328H128v42.672h106.688v-64h-85.344v-21.328h213.344v21.328h-85.344v64H384v-42.672h42.688v-85.328H448v85.328h64V266.664h-42.656zM192 245.336h-64v-64h64v64zm192 0h-64v-64h64v64z" />
+        </svg>
+    </div>
+</div>

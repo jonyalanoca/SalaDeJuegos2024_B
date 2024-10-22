@@ -1,0 +1,31 @@
+<!-- #region BlockUI -->
+<p-blockUI [blocked]="blockedDocument">
+    <ng-template pTemplate="blockUI">
+        <div class="blockui-content">
+            <p-progressSpinner ariaLabel="loading" />
+            <p>Cargando</p>
+        </div>
+    </ng-template>
+</p-blockUI>
+<!-- #endregion -->
+
+<p-toast position="top-center" />
+
+<section class="preguntadosContainer">
+    <div class="preguntadosInfo">
+        <div class="infoHearts">
+            <i class="pi pi-heart-fill" style="font-size: 1.5rem" *ngFor="let item of  [].constructor(vidas)"></i>
+        </div>
+        <div class="infoScore">{{puntos}}pts</div>
+    </div>
+    <div class="preguntadosQuestion">
+        {{preguntaValidador}}
+    </div>
+    <div class="preguntadorOpcionesSection">
+        <figure class="preguntadosImgOption" *ngFor="let item of personajes; let i = index"
+            (click)="evaluarRespuesta(item)">
+            <img [src]="item.image" alt="Personaje de Dragon ball">
+        </figure>
+    </div>
+
+</section>

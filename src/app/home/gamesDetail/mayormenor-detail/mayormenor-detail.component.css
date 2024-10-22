@@ -1,0 +1,22 @@
+.ahorcadoDetailContainer{
+    background-image: url('/assets/cardsWallpaper.webp');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: top;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ahoracadoDetailContent{    
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 70%;
+    justify-content: space-between;
+}
+.ahorcadoDetailTitle{
+    font-family: "Permanent Marker", cursive;
+    font-weight: bold;
+    font-size: 4.5rem;
+}

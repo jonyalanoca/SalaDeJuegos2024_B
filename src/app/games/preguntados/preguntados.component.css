@@ -1,0 +1,40 @@
+.preguntadosContainer {
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.126) 0%, rgba(0, 0, 0, 0.29)), url(/assets/namek.webp);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
+}
+.preguntadosInfo{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.infoHearts{
+    color: red;
+}
+.preguntadosQuestion {
+    font-size: 2rem;
+    flex: 1;
+
+}
+.preguntadorOpcionesSection {
+    flex: 1;
+    display: flex;
+}
+
+.preguntadosImgOption {
+    height: 50vh;
+    display: inline-block;
+    transition: transform 1s, filter .5s;
+}
+
+
+.preguntadosImgOption:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(5px 5px 10px gold);
+}

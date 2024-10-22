@@ -1,0 +1,32 @@
+<div class="ahorcadoDetailContainer">
+    <div class="ahoracadoDetailContent">
+        <div class="ahorcadoDetailTitle">
+            Guerra de las Galaxias
+        </div>
+        <div class=" flex gap-2 align-items-center">
+            <p-button label="Jugar ahora" class="boton" [rounded]="true" size="large" severity="secondary"
+                [routerLink]="['/games/galaxy']" />
+            <p-button label=".." [rounded]="true" severity="secondary" size="large" (onClick)="showDialog()" />
+            <p-button icon="pi pi-trophy" [rounded]="true" severity="secondary" [routerLink]="['/home/ranking/1/-1']"/>
+        </div>
+    </div>
+
+</div>
+<p-dialog header="Descripción Preguntados" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true">
+    <p>
+        Caza de Naves es un emocionante juego de reflejos donde tendrás que eliminar la mayor cantidad de naves enemigas
+        posible antes de que se acabe el tiempo. Usa tu ratón para aplastar las naves que aparecen en la pantalla, pero
+        cuidado, ¡a medida que pase el tiempo las naves se moverán cada vez más rápido! ¿Tienes lo necesario para ser el
+        mejor cazador de naves?
+        <br><br>
+        ¡Acumula la mayor cantidad de puntos antes de que el tiempo se acabe!
+    </p><br>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+        <li>Tendrás 2 minutos para eliminar la mayor cantidad de naves enemigas posible.</li>
+        <li>Elige la opción que creas correcta.</li>
+        <li>Por cada nave que elimines, sumarás puntos.</li>
+        <li>Las naves aparecerán y se moverán más rápido conforme avance el tiempo, aumentando el desafío.</li>    
+    </ol>
+</p-dialog>

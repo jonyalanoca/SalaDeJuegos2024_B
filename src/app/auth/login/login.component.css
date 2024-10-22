@@ -1,0 +1,24 @@
+.loginContainer{
+    width: 100%;
+    height: 100vh;
+    background-image: url("/assets/FondoLogin.webp");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+.loginCard{
+    height: 100vh;
+    min-width: 30vw;
+    background-color: rgba(0, 0, 0, 0.457);
+    padding: 2rem;
+}
+@media only screen and (max-width: 1150px) {
+    .loginCard{
+        min-width: 50vw;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .loginCard{
+        min-width: 80vw;
+    }
+}

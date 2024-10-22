@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    height: 100vh;
+    display: flex;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.055) 0%, rgb(0, 0, 0)), url(/assets/ahorcadoWallpaper.webp);
+    background-size: cover;
+  }
+  
+  .sectionBotones {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .sectionBotones,
+  .imagen_container {
+    flex: 1;
+  }
+  
+  .teclas_container,
+  .palabraSecreta_container {
+    display: grid;
+    grid-auto-flow: row;
+    /* Cambia el flujo automático de la cuadrícula a filas */
+    grid-template-columns: repeat(auto-fill, minmax(2rem, 1fr));
+    max-width: 600px;
+    gap: .5rem;
+  }
+  
+  .teclas_item {
+    height: 2rem;
+    background-color: white;
+    color: black;
+    border: none;
+    box-shadow: 2px 2px 2px 2px rgba(168, 167, 167, 0.263);
+    border-radius: 10%;
+    transition: all .5s inherit;
+  }
+  
+  .teclas_item:hover {
+    box-shadow: none;
+    transform: translate(2px, 2px);
+  }
+  
+  .teclas_itemUsada {
+    box-shadow: none;
+    transform: translate(2px, 2px);
+  }
+  
+  .palabraSecreta_letraContainer {
+    border-bottom: 1px solid white;
+  }
+  
+  .palabraSecreta_letra {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .imagen_svg{
+  width: 70%;
+  height:90%;
+  }

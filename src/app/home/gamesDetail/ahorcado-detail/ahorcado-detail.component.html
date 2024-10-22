@@ -1,0 +1,28 @@
+<div class="ahorcadoDetailContainer">
+    <div class="ahoracadoDetailContent">
+        <div class="ahorcadoDetailTitle">
+            El Ahorcado
+        </div>
+        <div class=" flex gap-2 align-items-center">
+            <p-button label="Jugar ahora" class="boton" [rounded]="true" size="large" severity="secondary" [routerLink]="['/games/ahorcado']"/>
+            <p-button label=".." [rounded]="true" severity="secondary" size="large" (onClick)="showDialog()" />
+            <p-button icon="pi pi-trophy" [rounded]="true" severity="secondary" [routerLink]="['/home/ranking/2/-1']"/>
+        </div>
+    </div>
+
+</div>
+<p-dialog header="Descripción El Ahoracado" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [maximizable]="true">
+    <p>
+        El Ahorcado es un juego clásico de adivinanza de palabras. El objetivo es adivinar la palabra secreta letra por
+        letra antes de que se complete el dibujo del ahorcado. Por cada letra incorrecta, se dibuja una parte del cuerpo
+        en la horca. El juego termina si completas la palabra correctamente o si el dibujo del ahorcado se finaliza.
+    </p><br>
+    <p><b>Instrucciones:</b></p>
+    <ol>
+        <li>Elige una letra del alfabeto.</li>
+        <li>Si la letra está en la palabra secreta, aparecerá en su posición correcta.</li>
+        <li>Si la letra no está en la palabra, se dibujará una parte del cuerpo.</li>
+        <li>Adivina la palabra completa antes de que el ahorcado esté completo para ganar.</li>
+    </ol>    
+</p-dialog>

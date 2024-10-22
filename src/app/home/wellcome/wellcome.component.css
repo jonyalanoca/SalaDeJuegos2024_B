@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+figure{
+    width: auto;
+    height: 99%
+}
+
+.wellcomeContainer{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wellcomeCard{
+    display: flex;
+    gap: 5rem;
+    height: 100%;
+    max-width: 90%;
+}
+.cardElement{
+    flex: 1;
+}
+.cardInformation{
+    display: flex;
+    gap:3rem;
+    flex-direction: column;
+    justify-content: center;
+}
+.cardTitle{
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+}

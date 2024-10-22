@@ -1,0 +1,30 @@
+<!-- #region BlockUI -->
+<p-blockUI [blocked]="blockedDocument">
+    <ng-template pTemplate="blockUI">
+        <div class="blockui-content">
+            <p-progressSpinner ariaLabel="loading" />
+            <p>Cargando</p>
+        </div>
+    </ng-template>
+</p-blockUI>
+<!-- #endregion -->
+<p-toast position="top-center" />
+
+
+<section class="mayorMenorContainer">
+    <!-- #region Contenido -->
+    <div class="mayorMenorInfo">
+        <div class="infoHearts">
+            <i class="pi pi-heart-fill" style="font-size: 1.5rem" *ngFor="let item of  [].constructor(vidas)"></i>
+        </div>
+        <div class="infoScore">{{puntos}}pts</div>
+    </div>
+    <figure class="mayorMenorCard" *ngIf="cartas.length > 0">
+        <img [src]="cartas[0].image">
+    </figure>
+    <div class="mayorMenorButtons">
+        <p-button label="Mayor" icon="pi pi-thumbs-up-fill" (click)="validarCartas('mayor')"/>
+        <p-button label="Menor" icon="pi pi-thumbs-down-fill" (click)="validarCartas('menor')"/>
+    </div>
+    <!-- #endregion -->
+</section>

@@ -1,0 +1,32 @@
+.galaxyContainer{
+    height: 100vh;
+    width: 100%;
+    background: rgb(16, 36, 0);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.126) 0%, rgba(0, 0, 0, 0.29)), url(/assets/galaxia.webp);
+    background-size: cover;    
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.campoBatalla{
+    cursor: crosshair;
+    height: 70%;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.653);
+    position:relative;
+}
+.alien
+{
+    fill: red;
+    position: absolute;
+    transition: transform 0.5s ease;
+}
+.status{
+    background-color: rgba(0, 0, 0, 0.653);
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
